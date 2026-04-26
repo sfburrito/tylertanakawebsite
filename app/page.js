@@ -46,7 +46,7 @@ const trackedCompanies = [
     stage: "Series B",
     focus: "Insurance-covered nutrition care",
     note:
-      "Nourish feels early, but right. The wedge is simple: reimbursed nutrition care tied to real behavior change. This gets stronger if GLP-1 care keeps expanding."
+      "Nourish sits in the right place: reimbursed nutrition care tied to real behavior change. This gets stronger if GLP-1 care keeps expanding."
   },
   {
     name: "Fay",
@@ -218,17 +218,16 @@ export default function HomePage() {
             tylertanaka.com
           </p>
           <h1 className="mt-6 max-w-4xl text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            Consumer health is shifting from fragmented point solutions to
-            longitudinal care. I&apos;m focused on where real advantage is forming
-            as AI reshapes how these companies are built.
+            Consumer health is moving from point solutions to longitudinal care.
+            I&apos;m focused on where real advantage forms as AI changes how these
+            companies are built.
           </h1>
           <p className="mt-6 text-sm uppercase tracking-[0.18em] text-neutral-500">
-            MIT Sloan MBA | Former venture investor
+            MIT Sloan MBA · Former venture investor
           </p>
           <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
-            A public research notebook on consumer health,
-            software-driven care, and the new execution layer behind smaller,
-            faster teams.
+            A public notebook on consumer health, software-driven care, and how
+            smaller teams build faster.
           </p>
         </section>
 
@@ -238,7 +237,7 @@ export default function HomePage() {
               Trends I&apos;m Following
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
-              The worldview comes first.
+              What I&apos;m seeing.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">
               These are the shifts driving the rest of the site.
@@ -375,7 +374,7 @@ export default function HomePage() {
               About Me
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
-              Building a public research process around consumer health.
+              How I think about consumer health.
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
               I&apos;m Tyler Tanaka. This site is where I document the companies,
