@@ -113,7 +113,7 @@ export default function HomePage() {
             <p className="mt-4 text-base leading-7 text-neutral-600">
               Placeholder research notes on products that may expand what lean
               teams can do in sales, finance, diligence, and day-to-day founder
-              execution.
+              execution. This section is designed to be updated over time.
             </p>
           </div>
 
