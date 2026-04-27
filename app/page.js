@@ -1,4 +1,4 @@
-function Mark({ label }) {
+﻿function Mark({ label }) {
   return (
     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-sm font-medium tracking-tight text-neutral-950">
       {label}
@@ -8,34 +8,65 @@ function Mark({ label }) {
 
 const trends = [
   {
+    category: "Macro",
     title: "Consumer health is moving from point solutions to ongoing care",
     detail:
       "The better companies are not selling a single intervention. They own more of the arc: diagnosis, treatment, adherence, and behavior change."
   },
   {
+    category: "Macro",
+    title: "Mental health is becoming a chronic care problem, not an acute one",
+    detail:
+      "The companies winning are not crisis intervention platforms. They are building longitudinal relationships around anxiety, ADHD, and sleep -- and the employer channel is where the distribution is."
+  },
+  {
+    category: "Macro",
+    title: "Women's health is a category, not a niche",
+    detail:
+      "Fertility was the wedge. The expansion into menopause, metabolic health, and autoimmune conditions -- where women are disproportionately affected -- is where the real market is. The GLP-1 overlap makes this a decade-long build."
+  },
+  {
+    category: "Economics & Distribution",
+    title: "Insurance-backed products keep beating pure cash-pay health",
+    detail:
+      "The strongest products feel consumer-grade up front and reimbursement-backed underneath. That combination controls distribution in a way cash-pay alone cannot."
+  },
+  {
+    category: "Economics & Distribution",
+    title:
+      "Primary care is being rebuilt again -- this time asset-light and reimbursement-native",
+    detail:
+      "Forward failed. One Medical got absorbed. The next version is async-first, lower cost to operate, and designed around the insurance relationship from day one. Whoever owns the PCP relationship owns the referral stack."
+  },
+  {
+    category: "Economics & Distribution",
     title: "AI makes company building cheaper. It does not remove the need for a wedge.",
     detail:
       "Small teams can move faster across product, ops, and go-to-market. The edge still comes from distribution, trust, workflow depth, and habit."
   },
   {
-    title: "GLP-1s are creating a broader consumer health stack",
+    category: "Product Wedge",
+    title: "Diagnostics are becoming the front door, not the follow-up",
     detail:
-      "The real opportunity is not just access to the drug. It is nutrition, side-effect management, adherence, diagnostics, and long-term outcomes."
+      "Labs, imaging, and wearables are easier to access than ever. The hard part is building the interpretation layer that turns scattered data into action people trust and act on."
   },
   {
-    title: "Insurance-backed products keep beating pure cash-pay health",
+    category: "Product Wedge",
+    title: "GLP-1s are a commodity. The outcomes infrastructure around them is not.",
     detail:
-      "The strongest products feel consumer-grade up front and reimbursement-backed underneath. That combination is hard to beat."
+      "The real opportunity is not access to the drug. It is nutrition, side-effect management, adherence, diagnostics, and the longitudinal care layer that makes the drug actually work."
   },
   {
-    title: "Diagnostics are becoming the new consumer wedge",
+    category: "Moats",
+    title: "AI works in healthcare when it makes experts faster, not optional",
     detail:
-      "Labs, imaging, and wearables are easier to access. The hard part is turning scattered data into action people trust."
+      "The products gaining real traction are not replacing clinicians or dietitians. They are compressing the time and cost of expert judgment while keeping accountability intact."
   },
   {
-    title: "The best AI products in healthcare amplify experts",
+    category: "Moats",
+    title: "Consumer trust in health data is a moat, not a feature",
     detail:
-      "This works when AI makes clinicians, dietitians, and operators faster without weakening accountability."
+      "The companies that own longitudinal health relationships -- where someone voluntarily shares labs, wearable data, and symptoms over time -- have a compounding data advantage that is genuinely hard to replicate. This is the infrastructure thesis underneath everything else."
   }
 ];
 
@@ -185,6 +216,18 @@ const operatorStack = [
   }
 ];
 
+const groupedTrends = Object.entries(
+  trends.reduce((groups, trend) => {
+    if (!groups[trend.category]) {
+      groups[trend.category] = [];
+    }
+    groups[trend.category].push(trend);
+    return groups;
+  }, {})
+);
+
+const accent = "#183C40";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-neutral-950">
@@ -195,16 +238,16 @@ export default function HomePage() {
           </a>
           <nav className="overflow-x-auto">
             <div className="flex min-w-max items-center gap-5 text-sm text-neutral-600">
-              <a href="#trends" className="whitespace-nowrap hover:text-neutral-950">
+              <a href="#trends" className="whitespace-nowrap">
                 Trends
               </a>
-              <a href="#companies" className="whitespace-nowrap hover:text-neutral-950">
+              <a href="#companies" className="whitespace-nowrap">
                 Companies
               </a>
-              <a href="#tools" className="whitespace-nowrap hover:text-neutral-950">
+              <a href="#tools" className="whitespace-nowrap">
                 Tools
               </a>
-              <a href="#about" className="whitespace-nowrap hover:text-neutral-950">
+              <a href="#about" className="whitespace-nowrap">
                 About
               </a>
             </div>
@@ -214,26 +257,26 @@ export default function HomePage() {
 
       <div id="top" className="mx-auto max-w-6xl px-6 pt-24 pb-14 sm:px-8 sm:pt-28 sm:pb-20 lg:px-12 lg:pt-32 lg:pb-24">
         <section className="border-b border-neutral-200 pb-14 sm:pb-16 scroll-mt-24">
-          <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
-            tylertanaka.com
+          <p
+            className="text-xs uppercase tracking-[0.2em] font-medium mb-6"
+            style={{ color: accent }}
+          >
+            TYLER TANAKA &middot; MIT SLOAN &middot; CONSUMER HEALTH
           </p>
           <h1 className="mt-6 max-w-4xl text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            Consumer health is moving from point solutions to longitudinal care.
-            I&apos;m focused on where real advantage forms as AI changes how these
-            companies are built.
+            Consumer health is moving from responding to illness to preventing it.
           </h1>
-          <p className="mt-6 text-sm uppercase tracking-[0.18em] text-neutral-500">
-            MIT Sloan MBA · Former venture investor
-          </p>
           <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
-            A public notebook on consumer health, software-driven care, and how
-            smaller teams build faster.
+            I&apos;m investing in the companies leading that shift.
           </p>
         </section>
 
         <section id="trends" className="scroll-mt-24 py-14 sm:py-20">
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
+            <p
+              className="text-sm uppercase tracking-[0.2em]"
+              style={{ color: accent }}
+            >
               Trends I&apos;m Following
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
@@ -244,29 +287,54 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-10 space-y-6 sm:space-y-7">
-            {trends.map((trend, index) => (
-              <article
-                key={trend.title}
-                className="border-l border-neutral-200 pl-5 sm:pl-6"
-              >
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-2 max-w-3xl text-xl font-medium tracking-tight text-neutral-950 sm:text-2xl">
-                  {trend.title}
-                </h3>
-                <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700 sm:text-base sm:leading-7">
-                  {trend.detail}
-                </p>
-              </article>
-            ))}
+          <div className="mt-10 space-y-8 sm:space-y-9">
+            {groupedTrends.map(([category, group], groupIndex) => {
+              const startIndex = trends.findIndex(
+                (trend) => trend.title === group[0].title
+              );
+
+              return (
+                <div
+                  key={category}
+                  className={groupIndex === 0 ? "" : "border-t border-neutral-200 pt-8"}
+                >
+                  <p
+                    className="text-xs uppercase tracking-[0.18em] font-medium"
+                    style={{ color: accent }}
+                  >
+                    {category}
+                  </p>
+                  <div className="mt-6 space-y-6 sm:space-y-7">
+                    {group.map((trend, index) => (
+                      <article
+                        key={trend.title}
+                        className="border-l pl-5 sm:pl-6"
+                        style={{ borderColor: accent }}
+                      >
+                        <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                          {(startIndex + index + 1).toString().padStart(2, "0")}
+                        </p>
+                        <h3 className="mt-2 max-w-3xl text-xl font-medium tracking-tight text-neutral-950 sm:text-2xl">
+                          {trend.title}
+                        </h3>
+                        <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700 sm:text-base sm:leading-7">
+                          {trend.detail}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
         <section id="companies" className="scroll-mt-24 border-t border-neutral-200 py-14 sm:py-20">
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
+            <p
+              className="text-sm uppercase tracking-[0.2em]"
+              style={{ color: accent }}
+            >
               Companies I&apos;m Tracking
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
@@ -309,7 +377,10 @@ export default function HomePage() {
 
         <section id="tools" className="scroll-mt-24 border-t border-neutral-200 py-14 sm:py-20">
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
+            <p
+              className="text-sm uppercase tracking-[0.2em]"
+              style={{ color: accent }}
+            >
               AI Operator Stack
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
@@ -370,21 +441,42 @@ export default function HomePage() {
 
         <section id="about" className="scroll-mt-24 border-t border-neutral-200 pt-14 sm:pt-20">
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">
-              About Me
+            <p
+              className="text-sm uppercase tracking-[0.2em]"
+              style={{ color: accent }}
+            >
+              About
             </p>
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
               How I think about consumer health.
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
-              I&apos;m Tyler Tanaka. This site is where I document the companies,
-              market shifts, and execution patterns I keep coming back to.
+              I&apos;m Tyler Tanaka, an MBA candidate at MIT Sloan and a former
+              investor at Translink Capital, where I helped build the firm&apos;s
+              consumer health practice and worked on Series A investments across
+              health and wellness.
             </p>
             <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
-              My focus is consumer health first. AI matters here as a force that
-              changes speed, workflows, and defensibility. The goal is simple:
-              make the thinking legible and start better conversations.
+              Before venture, I worked in M&amp;A diligence at EY, which shaped
+              how I think about infrastructure, business models, and what sits
+              underneath consumer-facing products.
             </p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+              This site is where I work through the market shifts I keep coming
+              back to. If anything here overlaps with what you&apos;re building or
+              investing in, I&apos;d like to hear about it.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 border-t border-neutral-200 pt-6 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
+              <a
+                href="mailto:tanaka5@mit.edu"
+                className="underline underline-offset-4"
+                style={{ color: accent }}
+              >
+                tanaka5@mit.edu
+              </a>
+              <p>MIT Sloan - Class of 2026</p>
+            </div>
           </div>
         </section>
       </div>
